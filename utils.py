@@ -181,7 +181,7 @@ def get_by_cast(actor_1, actor_2):
                         SELECT COUNT("cast") AS count_coast, "cast"
                         FROM netflix
                         WHERE "cast" LIKE @actor_1 AND "cast" LIKE @actor_2
-                        GROUP BY "coast"                       
+                        GROUP BY "cast"                       
                         HAVING count_coast >=2                           
                         """
     sql_data = get_sql(query, (actor_1, actor_2))
