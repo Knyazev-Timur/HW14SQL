@@ -178,11 +178,11 @@ def get_by_cast(actor_1, actor_2):
     при условии если пара играла в 2 и более фильмах
     """
     query = """
-                        SELECT COUNT("cast") AS count_coast, "cast"
+                        SELECT COUNT("cast") AS count_cast, "cast"
                         FROM netflix
                         WHERE "cast" LIKE @actor_1 AND "cast" LIKE @actor_2
-                        GROUP BY "cast"                       
-                        HAVING count_coast >=2                           
+                        GROUP BY "coast"                                              
+                        HAVING count_cast >=2                           
                         """
     sql_data = get_sql(query, (actor_1, actor_2))
     return sql_data.fetchall()
@@ -252,3 +252,5 @@ def get_random(rating, genre, old_year, new_year):
     ]
 
     return films[random.randint(0,len(films)-1)]
+
+print(get_by_cast('%Jack Black%', '%Dustin Hoffman%'))
