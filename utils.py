@@ -252,5 +252,3 @@ def get_random(rating, genre, old_year, new_year):
     ]
 
     return films[random.randint(0,len(films)-1)]
-
-print(get_by_cast('%Jack Black%', '%Dustin Hoffman%'))
