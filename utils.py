@@ -7,11 +7,10 @@ def get_sql(query, parametr):
     :param query: str
     :param parametr: str
     :return: class 'sqlite3.Cursor'
-    обращается к БД и экуземпляр класса class 'sqlite3.Cursor'
+    обращается к БД и возвращает экуземпляр класса class 'sqlite3.Cursor'
     """
     with sqlite3.connect('data/netflix.db') as connection:
         cursor = connection.cursor()
-        print (type(cursor))
         return cursor.execute(query, parametr)
 
 
